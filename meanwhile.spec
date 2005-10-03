@@ -10,7 +10,7 @@ Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/meanwhile/%{name}-%{version}.tar.gz
-# Source0-md5:	-
+# Source0-md5:	f76f5c59be5696c906a5cfa6a67e73e2
 URL:		http://meanwhile.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
