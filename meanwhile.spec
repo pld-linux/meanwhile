@@ -1,53 +1,74 @@
 #
-%bcond_without	static_libs	# disable static libraries
-
+# Conditional build:
+%bcond_without	static_libs	# don't build static library
+#
 Summary:	Lotus Sametime library
+Summary(pl):	Biblioteka Lotus Sametime
 Name:		meanwhile
 Version:	0.4.2
 Release:	1
-License:	GPL/GPL v2/LGPL/BSD/BSD-like/other license name here)
+License:	LGPL v2+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/meanwhile/%{name}-%{version}.tar.gz
 # Source0-md5:	-
-URL:		http://meanwhile.sourceforge.net
-BuildRequires:	glib-devel
-BuildRequires:	pkgconfig
+URL:		http://meanwhile.sourceforge.net/
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	autoconf
+BuildRequires:	glib2-devel >= 2.0.0
+BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The heart of the Meanwhile Project is the Meanwhile library, providing
 the basic Lotus Sametime session functionality along with the core
-services; Presence Awareness, Instant Messaging, Multi-user
+services: Presence Awareness, Instant Messaging, Multi-user
 Conferencing, Preferences Storage, Identity Resolution, and File
 Transfer. This extensible client interface allows additional services
 to be added to a session at runtime, allowing for simple integration
 of future service handlers such as the user directory and whiteboard
 and screen-sharing.
 
+%description -l pl
+Sercem projektu Meanwhile jest biblioteka Meanwhile udostêpniaj±ca
+podstawow± funkcjonalno¶æ sesji Lotus Sametime wraz z g³ównymi
+us³ugami: sprawdzaniem obecno¶ci, komunikatorem, konferencj±
+wielou¿ytkownikow±, przechowywaniem ustawieñ, sprawdzaniem to¿samo¶ci
+i przesy³aniem plików. Ten rozszerzalny interfejs kliencki umo¿liwia
+dodawanie dodatkowych us³ug do sesji w czasie pracy, pozwalaj±c na
+prost± integracjê obs³ugi przysz³ych us³ug, takich jak katalog
+u¿ytkowników czy wspó³dzielenie tablicy i ekranu.
+
 %package devel
-Summary:	Development libraries and header files for meanwhile library
+Summary:	Header files for meanwhile library
+Summary(pl):	Pliki nag³ówkowe biblioteki meanwhile
 Group:		Development/Libraries
-Requires:	pkgconfig
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
+Requires:	glib2-devel >= 2.0.0
 
 %description devel
-This is the package containing the development libraries and header
-files for meanwhile.
+This is the package containing the header files for meanwhile.
+
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe biblioteki meanwhile.
 
 %package static
 Summary:	Static meanwhile library
+Summary(pl):	Statyczna biblioteka meanwhile
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static meanwhile library.
+
+%description static -l pl
+Statyczna biblioteka meanwhile.
 
 %prep
 %setup -q
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -59,8 +80,6 @@ Static meanwhile library.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-# create directories if necessary
-install -d $RPM_BUILD_ROOT%{_bindir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
