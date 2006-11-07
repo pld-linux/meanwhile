@@ -14,6 +14,7 @@ Source0:	http://dl.sourceforge.net/meanwhile/%{name}-%{version}.tar.gz
 URL:		http://meanwhile.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+BuildRequires:	doxygen
 BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
