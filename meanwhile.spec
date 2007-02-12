@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Lotus Sametime library
-Summary(pl):	Biblioteka Lotus Sametime
+Summary(pl.UTF-8):   Biblioteka Lotus Sametime
 Name:		meanwhile
 Version:	1.0.2
 Release:	1
@@ -30,19 +30,19 @@ to be added to a session at runtime, allowing for simple integration
 of future service handlers such as the user directory and whiteboard
 and screen-sharing.
 
-%description -l pl
-Sercem projektu Meanwhile jest biblioteka Meanwhile udostÍpniaj±ca
-podstawow± funkcjonalno∂Ê sesji Lotus Sametime wraz z g≥Ûwnymi
-us≥ugami: sprawdzaniem obecno∂ci, komunikatorem, konferencj±
-wielouøytkownikow±, przechowywaniem ustawieÒ, sprawdzaniem toøsamo∂ci
-i przesy≥aniem plikÛw. Ten rozszerzalny interfejs kliencki umoøliwia
-dodawanie dodatkowych us≥ug do sesji w czasie pracy, pozwalaj±c na
-prost± integracjÍ obs≥ugi przysz≥ych us≥ug, takich jak katalog
-uøytkownikÛw czy wspÛ≥dzielenie tablicy i ekranu.
+%description -l pl.UTF-8
+Sercem projektu Meanwhile jest biblioteka Meanwhile udostƒôpniajƒÖca
+podstawowƒÖ funkcjonalno≈õƒá sesji Lotus Sametime wraz z g≈Ç√≥wnymi
+us≈Çugami: sprawdzaniem obecno≈õci, komunikatorem, konferencjƒÖ
+wielou≈ºytkownikowƒÖ, przechowywaniem ustawie≈Ñ, sprawdzaniem to≈ºsamo≈õci
+i przesy≈Çaniem plik√≥w. Ten rozszerzalny interfejs kliencki umo≈ºliwia
+dodawanie dodatkowych us≈Çug do sesji w czasie pracy, pozwalajƒÖc na
+prostƒÖ integracjƒô obs≈Çugi przysz≈Çych us≈Çug, takich jak katalog
+u≈ºytkownik√≥w czy wsp√≥≈Çdzielenie tablicy i ekranu.
 
 %package devel
 Summary:	Header files for meanwhile library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki meanwhile
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki meanwhile
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 2.0.0
@@ -50,19 +50,19 @@ Requires:	glib2-devel >= 2.0.0
 %description devel
 This is the package containing the header files for meanwhile.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag≥Ûwkowe biblioteki meanwhile.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nag≈Ç√≥wkowe biblioteki meanwhile.
 
 %package static
 Summary:	Static meanwhile library
-Summary(pl):	Statyczna biblioteka meanwhile
+Summary(pl.UTF-8):   Statyczna biblioteka meanwhile
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static meanwhile library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka meanwhile.
 
 %prep
