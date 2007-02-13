@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Lotus Sametime library
-Summary(pl.UTF-8):   Biblioteka Lotus Sametime
+Summary(pl.UTF-8):	Biblioteka Lotus Sametime
 Name:		meanwhile
 Version:	1.0.2
 Release:	1
@@ -42,7 +42,7 @@ użytkowników czy współdzielenie tablicy i ekranu.
 
 %package devel
 Summary:	Header files for meanwhile library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki meanwhile
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki meanwhile
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 2.0.0
@@ -55,7 +55,7 @@ Ten pakiet zawiera pliki nagłówkowe biblioteki meanwhile.
 
 %package static
 Summary:	Static meanwhile library
-Summary(pl.UTF-8):   Statyczna biblioteka meanwhile
+Summary(pl.UTF-8):	Statyczna biblioteka meanwhile
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
