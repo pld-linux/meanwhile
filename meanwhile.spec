@@ -6,7 +6,7 @@ Summary:	Lotus Sametime library
 Summary(pl.UTF-8):	Biblioteka Lotus Sametime
 Name:		meanwhile
 Version:	1.0.2
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/meanwhile/%{name}-%{version}.tar.gz
