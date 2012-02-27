@@ -1,0 +1,12 @@
+diff -urN meanwhile-1.0.2/configure.ac meanwhile-1.0.2.new/configure.ac
+--- meanwhile-1.0.2/configure.ac	2005-12-30 02:52:53.000000000 +0100
++++ meanwhile-1.0.2.new/configure.ac	2012-02-27 12:22:51.156318914 +0100
+@@ -44,7 +44,7 @@
+ *mingw32 | *cygwin)
+ 	MW_SO_OS_FLAGS="-shared -no-undefined";;
+ *)
+-	MW_SO_OS_FLAGS="-shared";;
++	MW_SO_OS_FLAGS="";;
+ esac
+ AC_SUBST(MW_SO_OS_FLAGS)
+ 
