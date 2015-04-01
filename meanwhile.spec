@@ -6,13 +6,14 @@ Summary:	Lotus Sametime library
 Summary(pl.UTF-8):	Biblioteka Lotus Sametime
 Name:		meanwhile
 Version:	1.0.2
-Release:	3
+Release:	4
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/meanwhile/%{name}-%{version}.tar.gz
 # Source0-md5:	bf4ced109a367b4c5d71fe63c043270e
 Patch0:		%{name}-glib-includes.patch
 Patch1:		%{name}-static-build.patch
+Patch2:		format-security.patch
 URL:		http://meanwhile.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -71,6 +72,7 @@ Statyczna biblioteka meanwhile.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
