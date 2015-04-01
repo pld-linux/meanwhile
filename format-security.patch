@@ -1,0 +1,20 @@
+--- meanwhile-1.0.2/src/mw_debug.c.orig	2015-04-01 14:52:02.000000000 +0000
++++ meanwhile-1.0.2/src/mw_debug.c	2015-04-01 14:53:04.000000000 +0000
+@@ -92,7 +92,7 @@ void mw_debug_datav(const guchar *buf, g
+   }
+   pretty_print(str, buf, len);
+ 
+-  g_debug(str->str);
++  g_debug("%s", str->str);
+   g_string_free(str, TRUE);
+ }
+ 
+@@ -149,7 +149,7 @@ void mw_mailme_datav(const guchar *buf,
+ 
+   g_string_append(str, MW_MAILME_CUT_STOP);
+ 
+-  g_debug(str->str);
++  g_debug("%s", str->str);
+   g_string_free(str, TRUE);
+ 
+ #else
