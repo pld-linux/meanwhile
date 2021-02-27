@@ -6,7 +6,7 @@ Summary:	Lotus Sametime library
 Summary(pl.UTF-8):	Biblioteka Lotus Sametime
 Name:		meanwhile
 Version:	1.0.2
-Release:	6
+Release:	7
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/meanwhile/%{name}-%{version}.tar.gz
@@ -22,6 +22,7 @@ BuildRequires:	doxygen
 BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -69,6 +70,18 @@ Static meanwhile library.
 %description static -l pl.UTF-8
 Statyczna biblioteka meanwhile.
 
+%package apidocs
+Summary:	API documentation for meanwhile library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki meanwhile
+Group:		Documentation
+BuildArch:	noarch
+
+%description apidocs
+API documentation for meanwhile library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki meanwhile.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -95,6 +108,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libmeanwhile.la
+# HTML is enough
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}-doc-%{version}/latex
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -109,7 +124,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc %{_docdir}/%{name}-doc-%{version}
 %attr(755,root,root) %{_libdir}/libmeanwhile.so
 %{_includedir}/meanwhile
 %{_pkgconfigdir}/meanwhile.pc
@@ -119,3 +133,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libmeanwhile.a
 %endif
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_docdir}/%{name}-doc-%{version}
