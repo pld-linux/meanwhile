@@ -1,19 +1,20 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static library
+%bcond_without	static_libs	# static library
 #
 Summary:	Lotus Sametime library
 Summary(pl.UTF-8):	Biblioteka Lotus Sametime
 Name:		meanwhile
 Version:	1.0.2
-Release:	5
+Release:	6
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/meanwhile/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/meanwhile/%{name}-%{version}.tar.gz
 # Source0-md5:	bf4ced109a367b4c5d71fe63c043270e
 Patch0:		%{name}-glib-includes.patch
 Patch1:		%{name}-static-build.patch
 Patch2:		format-security.patch
+Patch3:		%{name}-pc.patch
 URL:		http://meanwhile.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -73,6 +74,7 @@ Statyczna biblioteka meanwhile.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__libtoolize}
@@ -91,6 +93,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libmeanwhile.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -106,7 +111,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{_docdir}/%{name}-doc-%{version}
 %attr(755,root,root) %{_libdir}/libmeanwhile.so
-%{_libdir}/libmeanwhile.la
 %{_includedir}/meanwhile
 %{_pkgconfigdir}/meanwhile.pc
 

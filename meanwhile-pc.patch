@@ -1,0 +1,10 @@
+--- meanwhile-1.0.2/meanwhile.pc.in.orig	2005-09-22 01:23:04.000000000 +0200
++++ meanwhile-1.0.2/meanwhile.pc.in	2021-02-27 15:30:00.730487596 +0100
+@@ -10,6 +10,7 @@
+ Requires: glib-2.0 >= @GLIB_VERSION@
+ 
+ Libs: -L${libdir} -lmeanwhile
++Libs.private: @LIBM@
+ Cflags: -I${includedir}/meanwhile
+ 
+ libarchive=${libdir}/libmeanwhile.a
